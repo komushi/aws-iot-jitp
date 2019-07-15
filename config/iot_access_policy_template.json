@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "iot:Subscribe",
+        "iot:Receive"
+      ],
+      "Effect": "Allow",
+      "Resource": "*",
+      "Sid": "MQTTRead"
+    },
+    {
+      "Action": [
+        "iot:Connect"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:iot:*:${AWS::AccountId}:client/${iot:Connection.Thing.ThingName}",
+      "Sid": "MQTTConnect"
+    },
+    {
+      "Sid": "MQTTWrite",
+      "Action": [
+        "iot:Publish"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:iot:*:${AWS::AccountId}:topic/${iot:Certificate.Subject.CommonName}"
+    }
+  ]
+}
