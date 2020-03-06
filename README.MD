@@ -1,13 +1,13 @@
 ## 1. Preparation
 
-
-
-
+### 1-1. Install mosquitto
+```
+brew install mosquitto
+```
+### 1-2. Setup the account
 ```
 $ export AWS_ACCOUNT=<your_account>
 ```
-
-
 
 ## 2. v1
 https://github.com/aws-samples/aws-iot-jitp-sample-scripts/blob/master/bin/register-ca
