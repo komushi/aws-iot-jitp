@@ -24,7 +24,10 @@
         "iot:Publish"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:iot:*:${AWS::AccountId}:topic/${iot:Certificate.Subject.CommonName}"
+      "Resource": [
+        "arn:aws:iot:*:${AWS::AccountId}:topic/${iot:Certificate.Subject.CommonName}",
+        "arn:aws:iot:*:${AWS::AccountId}:topic/$aws/things/${iot:Certificate.Subject.CommonName}/shadow/update"
+      ]
     }
   ]
 }
